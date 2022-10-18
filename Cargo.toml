@@ -15,6 +15,6 @@ lto = true
 debug = 2
 
 [dependencies]
-mos-hardware = "0.1.9"
+mos-hardware = "0"
 ufmt-stdio = "0"
 
