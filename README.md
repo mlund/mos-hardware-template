@@ -1,3 +1,11 @@
+# IMPORTANT!
+
+**Using `mos-hardware` as a dependency (as in this template) can cause
+mis-compilation as detailed in this
+[rust-mos issue](https://github.com/mrk-its/rust-mos/issues/16).
+Until fixed, simply work in the `examples/` directory of [`mos-hardware`](https://github.com/mlund/mos-hardware).**
+
+
 # mos-hardware-template
 
 Template for projects using the mos-hardware crate.
