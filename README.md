@@ -17,9 +17,9 @@ The easiest way is to use the provided `.devcontainer.json` configuration for vs
 1. Configure Visual Studio Code with the _Remote - Containers_ extension
 2. Start Docker
 3. Open the project (e.g. with `code .`) and when asked, re-open in Docker container
-4. In the vscode terminal do something like:
+4. In the vscode terminal type:
    ~~~ bash
-   cargo build --release # default c64 target
-   cargo build --target mos-mega65-none # build for MEGA65
+   export CARGO_NET_GIT_FETCH_WITH_CLI=true # only if Docker uses qemu
+   cargo build --release --target mos-c64-none
    ~~~
 
