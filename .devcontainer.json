@@ -1,4 +1,7 @@
 {
+  // Match the image to your architecture:
+  // "mrkits/rust-mos"       --> x86
+  // "mikaellund/rust-mos"   --> arm64 and apple silicon
   "image": "mikaellund/rust-mos:sdk0.11.7",
   "onCreateCommand": "echo settings set target.load-cwd-lldbinit true > /home/mos/.lldbinit",
   "settings": {
