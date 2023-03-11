@@ -16,8 +16,7 @@ debug = 2
 
 [dependencies]
 # here you better pin the mos-hardware version to use
-mos-hardware = {path = "/Users/mikael/github/mos-hardware"}
-#mos-hardware = {git = "https://github.com/mlund/mos-hardware", branch = "main"}
+mos-hardware = {git = "https://github.com/mlund/mos-hardware", branch = "main"}
 mos-alloc = "0.2"
 ufmt-stdio = "0"
 rand = {version = "0.8.5", default-features = false}

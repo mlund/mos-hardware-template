@@ -5,7 +5,6 @@
 
 #![no_std]
 #![feature(start)]
-#![feature(default_alloc_error_handler)]
 
 use core::panic::PanicInfo;
 use mos_hardware::{c64, sid};
@@ -14,7 +13,7 @@ use ufmt_stdio::*;
 
 #[start]
 fn _main(_argc: isize, _argv: *const *const u8) -> isize {
-    let mut rng = sid::SIDRng::default(c64::sid());
+    let mut rng = sid::SIDRng::new(c64::sid());
     for offset in 0..40 * 25 {
         let character = [77u8, 78u8].choose(&mut rng).copied().unwrap();
         unsafe {
