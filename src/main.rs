@@ -5,9 +5,10 @@
 
 #![no_std]
 #![feature(start)]
+#![feature(default_alloc_error_handler)]
 
 use core::panic::PanicInfo;
-use mos_hardware::{c64, sid};
+use mos_hardware::{c64, sid, vic2};
 use rand::seq::SliceRandom;
 use ufmt_stdio::*;
 
@@ -28,5 +29,10 @@ fn _main(_argc: isize, _argv: *const *const u8) -> isize {
 
 #[panic_handler]
 fn panic(_info: &PanicInfo) -> ! {
-    loop {}
+    loop {
+        unsafe {
+            c64::vic2().border_color.write(vic2::RED);
+            c64::vic2().border_color.write(vic2::BLACK);
+        }
+    }
 }

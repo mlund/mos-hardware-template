@@ -1,5 +1,5 @@
 [package]
-name = "print10"
+name = "mos-example"
 version = "0.1.0"
 edition = "2021"
 
@@ -12,11 +12,12 @@ codegen-units = 1
 [profile.release]
 opt-level = "s"
 lto = true
-debug = 2
+debug = 0
+strip = true
 
 [dependencies]
 # here you better pin the mos-hardware version to use
-mos-hardware = {git = "https://github.com/mlund/mos-hardware", branch = "main"}
+mos-hardware = "0"
 mos-alloc = "0.2"
 ufmt-stdio = "0"
-rand = {version = "0.8.5", default-features = false}
+rand = {version = "0.8", default-features = false}

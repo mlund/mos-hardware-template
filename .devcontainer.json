@@ -1,8 +1,5 @@
 {
-  // Match the image to your architecture:
-  // "mrkits/rust-mos"       --> x86
-  // "mikaellund/rust-mos"   --> arm64 and apple silicon
-  "image": "mikaellund/rust-mos:sdk0.11.7",
+  "image": "mrkits/rust-mos:latest",
   "onCreateCommand": "echo settings set target.load-cwd-lldbinit true > /home/mos/.lldbinit",
   "settings": {
     "rust-analyzer.checkOnSave.command": "check",
@@ -12,5 +9,5 @@
         "macro-error"
     ]
   },
-  "extensions": ["rust-lang.rust-analyzer", "serayuzgur.crates", "vadimcn.vscode-lldb", "tamasfe.even-better-toml"]
+  "extensions": ["rust-lang.rust-analyzer", "serayuzgur.crates", "vadimcn.vscode-lldb", "tlgkccampbell.code-ca65", "tamasfe.even-better-toml"]
 }
