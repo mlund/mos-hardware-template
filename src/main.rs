@@ -19,7 +19,7 @@
 extern crate mos_alloc;
 
 use core::panic::PanicInfo;
-use mos_hardware::{c64, screen_codes, sid::SIDRng};
+use mos_hardware::{c64, screen_codes, sid::SIDRng, vic2};
 use rand::seq::SliceRandom;
 use ufmt_stdio::*;
 
