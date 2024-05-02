@@ -17,7 +17,8 @@ strip = true
 
 [dependencies]
 # here you better pin the mos-hardware version to use
-mos-hardware = "0"
+mos-hardware = "0.4"
 mos-alloc = "0.2"
-ufmt-stdio = "0"
+ufmt-stdio = "0.4"
 rand = {version = "0.8", default-features = false}
+const-str ="0.5"
