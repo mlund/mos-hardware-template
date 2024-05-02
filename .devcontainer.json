@@ -1,6 +1,9 @@
 {
   "image": "mrkits/rust-mos:latest",
   "onCreateCommand": "echo settings set target.load-cwd-lldbinit true > /home/mos/.lldbinit",
+  "customizations": {
+    "vscode": {
+      "extensions": ["rust-lang.rust-analyzer", "serayuzgur.crates", "vadimcn.vscode-lldb", "tlgkccampbell.code-ca65", "tamasfe.even-better-toml"],
   "settings": {
     "rust-analyzer.checkOnSave.command": "check",
     "rust-analyzer.checkOnSave.allTargets": false,
@@ -8,6 +11,7 @@
         "unresolved-macro-call",
         "macro-error"
     ]
-  },
-  "extensions": ["rust-lang.rust-analyzer", "serayuzgur.crates", "vadimcn.vscode-lldb", "tlgkccampbell.code-ca65", "tamasfe.even-better-toml"]
+      }
+    }
+  }
 }
