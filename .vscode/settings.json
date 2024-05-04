@@ -2,7 +2,8 @@
     "rust-analyzer.diagnostics.disabled": [
         "unresolved-proc-macro"
     ],
-    "rust-analyzer.checkOnSave.command": "check",
+    "rust-analyzer.check.command": "check",
+    "rust-analyzer.check.allTargets": false,
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "rust-lang.rust-analyzer",
     "rust-analyzer.rustfmt.extraArgs": [

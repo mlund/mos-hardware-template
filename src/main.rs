@@ -1,29 +1,43 @@
-//! 10print algorithm in Rust
+//! Classic 10print Maze in Rust
 //!
-//! 8-bit show and tell has a great movie about this:
+//! "8-bit Show and Tell" has a great movie on this:
 //! https://www.youtube.com/watch?v=IPP-EMBQPhE
+//!
+//! We here use the `SIDRng` random number back-end which implements
+//! the [`rand::RngCore`](https://docs.rs/rand/latest/rand/trait.RngCore.html) trait
+//! and can therefore be used with slices, iterators etc. It is of course overkill
+//! for merely picking two characters (`╲` or `╱`), and it would be more efficient
+//! to manually comparing with a random byte.
+//!
+//! PETSCII characters are written directly to screen memory and thus
+//! needs to be converted using the `screen_codes!` macro. This has no overhead as it is
+//! done at compile time using Rust's const evaluation features.
 
 #![no_std]
 #![feature(start)]
-#![feature(default_alloc_error_handler)]
+
+extern crate mos_alloc;
 
 use core::panic::PanicInfo;
-use mos_hardware::{c64, sid, vic2};
+use mos_hardware::{c64, screen_codes, sid::SIDRng, vic2};
 use rand::seq::SliceRandom;
 use ufmt_stdio::*;
 
 #[start]
 fn _main(_argc: isize, _argv: *const *const u8) -> isize {
-    let mut rng = sid::SIDRng::new(c64::sid());
-    for offset in 0..40 * 25 {
-        let character = [77u8, 78u8].choose(&mut rng).copied().unwrap();
+    const SCREEN_SIZE: usize = 40 * 25;
+    const LEFT_OR_RIGHT: [u8; 2] = screen_codes!("MN"); // ╲ or ╱
+    let mut rng = SIDRng::new(c64::sid());
+    c64::set_upper_case();
+    for offset in 0..SCREEN_SIZE {
+        let random_char = LEFT_OR_RIGHT.choose(&mut rng).copied().unwrap();
         unsafe {
             c64::DEFAULT_VIDEO_MEMORY
                 .add(offset)
-                .write_volatile(character)
+                .write_volatile(random_char)
         };
     }
-    println!("HELLO C64 FROM RUST");
+    println!("10print maze in rust!");
     0
 }
 
